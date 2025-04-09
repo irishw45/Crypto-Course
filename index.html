@@ -1,120 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Crypto Trading 101</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }
-    header {
-      background-color: #101010;
-      padding: 1.5rem;
-      text-align: center;
-      border-bottom: 2px solid #00fff7;
-    }
-    header h1 {
-      color: #00fff7;
-      font-size: 2rem;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #111;
-      padding: 1rem;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: #00fff7;
-      margin: 0.5rem 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #ffffff;
-    }
-    .content {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .lesson {
-      background: #1a1a1a;
-      border-left: 5px solid #00fff7;
-      margin-bottom: 2rem;
-      padding: 1rem 1.5rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 15px rgba(0, 255, 247, 0.2);
-    }
-    .lesson h2 {
-      color: #00fff7;
-    }
-    .terms {
-      margin-top: 1rem;
-      padding-left: 1rem;
-      border-left: 3px solid #00fff7;
-    }
-    .lesson p.explanation {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      line-height: 1.5rem;
-      color: #dddddd;
-    }
-    .terms ul li {
-      margin-bottom: 0.5rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Crypto Trading 101: From Beginner to Pro</h1>
-  </header>
-  <nav>
-    <a href="#lesson1">Lesson 1</a>
-    <a href="#lesson2">Lesson 2</a>
-    <a href="#lesson3">Lesson 3</a>
-    <a href="#lesson4">Lesson 4</a>
-    <a href="#lesson5">Lesson 5</a>
-    <a href="#lesson6">Lesson 6</a>
-    <a href="#lesson7">Lesson 7</a>
-    <a href="#lesson8">Lesson 8</a>
-    <a href="#lesson9">Lesson 9</a>
-    <a href="#lesson10">Lesson 10</a>
-  </nav>
-  <div class="content">
-    <div class="lesson" id="lesson1">
-      <h2>Lesson 1: Intro to Trading & Markets</h2>
-      <p class="explanation">Trading is the practice of exchanging one asset for another, usually with the goal of making a profit from price changes. Markets are simply where this activity happens. Some people trade stocks, others trade crypto or commodities. The important thing is understanding that prices are driven by what people are willing to pay. Whether you're trading Bitcoin or Apple shares, you're part of a constantly moving ecosystem of buyers and sellers. The goal isn't to be right every time — it's to build an edge over time using discipline and smart decision-making.</p>
-      <div class="terms">
-        <h3>Key Terms:</h3>
-        <ul>
-          <li><strong>Market:</strong> A place or system where trading activity happens, like the stock or crypto market.</li>
-          <li><strong>Exchange:</strong> A digital or physical platform where buyers and sellers interact to trade assets.</li>
-          <li><strong>Volatility:</strong> How much and how quickly a price moves; high volatility means bigger price swings.</li>
-          <li><strong>Trader:</strong> A person who actively buys and sells assets with the goal of making a profit.</li>
-          <li><strong>Liquidity:</strong> How easy it is to buy or sell an asset without affecting its price too much.</li>
-        </ul>
-      </div>
-    </div>
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import {
+  BookOpen,
+  Terminal,
+  Lock,
+  TrendingUp,
+  ShieldCheck,
+  Activity,
+  Compass,
+  Repeat,
+  FileText,
+  UserCheck,
+  Menu
+} from 'lucide-react';
 
-    <div class="lesson" id="lesson2">
-      <h2>Lesson 2: Understanding Crypto & Blockchain</h2>
-      <p class="explanation">At its core, cryptocurrency is just digital money — but it's powered by something much bigger: blockchain. A blockchain is a public ledger, meaning everyone can see the transactions and no one can change them. That’s where the trust comes from. Crypto is decentralized, which means no one person or government controls it. That gives it power — and volatility. Once you understand what makes crypto work under the hood, you stop just guessing at price movements and start thinking like someone who understands the network, the incentives, and the real value of these assets.</p>
-      <div class="terms">
-        <h3>Key Terms:</h3>
-        <ul>
-          <li><strong>Blockchain:</strong> A digital, public ledger that records transactions in a secure and permanent way.</li>
-          <li><strong>Decentralization:</strong> The distribution of control away from a central authority, like a government or bank.</li>
-          <li><strong>Token:</strong> A digital asset that represents value or access to a specific blockchain-based project.</li>
-          <li><strong>Wallet:</strong> A software or device that stores your crypto and lets you send or receive it securely.</li>
-          <li><strong>Ethereum:</strong> A blockchain platform known for smart contracts and decentralized applications (dApps).</li>
-        </ul>
+const lessons = [
+  {
+    title: 'Lesson 1: Intro to Trading & Markets',
+    icon: <TrendingUp className="w-6 h-6 text-cyan-400" />,
+    terms: ['Trading', 'Market Liquidity', 'Volatility', 'Investing', 'Exchange'],
+    summary:
+      'Understand what trading is, how financial markets work, and why crypto is different.',
+  },
+  {
+    title: 'Lesson 2: Crypto & Blockchain',
+    icon: <Terminal className="w-6 h-6 text-purple-400" />,
+    terms: ['Cryptocurrency', 'Blockchain', 'Decentralization', 'Altcoins', 'Bitcoin'],
+    summary:
+      'Dive into what crypto is, how blockchain works, and why it matters to traders.',
+  },
+  {
+    title: 'Lesson 3: Technical Analysis 101',
+    icon: <BookOpen className="w-6 h-6 text-pink-400" />,
+    terms: ['Candlestick Patterns', 'Moving Averages', 'RSI', 'MACD', 'Support & Resistance'],
+    summary:
+      'Learn to read charts, indicators, and use TA to find entries and exits.',
+  },
+  {
+    title: 'Lesson 4: Fundamental Analysis',
+    icon: <ShieldCheck className="w-6 h-6 text-green-400" />,
+    terms: ['Tokenomics', 'Whitepaper', 'Supply & Demand', 'Market Cap', 'Roadmap'],
+    summary:
+      'Explore what makes a crypto valuable beyond just price charts.',
+  },
+  {
+    title: 'Lesson 5: Risk Management & Psychology',
+    icon: <Activity className="w-6 h-6 text-orange-400" />,
+    terms: ['Risk Management', 'Stop-Loss', 'Position Sizing', 'Risk-to-Reward Ratio', 'Trading Psychology'],
+    summary:
+      'Control risk, size your trades, and master emotions for long-term success.',
+  },
+  {
+    title: 'Lesson 6: Trading Strategies & Backtesting',
+    icon: <Repeat className="w-6 h-6 text-blue-400" />,
+    terms: ['Scalping', 'Swing Trading', 'Position Trading', 'Backtesting', 'Trading Strategy'],
+    summary:
+      'Explore different strategies and how to test them before risking real capital.',
+  },
+  {
+    title: 'Lesson 7: Order Types & Market Mechanics',
+    icon: <Compass className="w-6 h-6 text-emerald-400" />,
+    terms: ['Market Order', 'Limit Order', 'Stop-Loss', 'Take-Profit', 'Slippage'],
+    summary:
+      'Understand the different order types and how trades get executed.',
+  },
+  {
+    title: 'Lesson 8: Leverage & Margin Trading',
+    icon: <TrendingUp className="w-6 h-6 text-yellow-400" />,
+    terms: ['Leverage', 'Margin', 'Liquidation', 'Collateral', 'Risk Exposure'],
+    summary:
+      'Learn how margin and leverage work — and when not to use them.',
+  },
+  {
+    title: 'Lesson 9: Security & Avoiding Scams',
+    icon: <Lock className="w-6 h-6 text-red-400" />,
+    terms: ['Wallet', 'Private Key', 'Phishing', 'Rug Pull', 'Two-Factor Authentication'],
+    summary:
+      'Keep your crypto safe with proper wallet use and scam awareness.',
+  },
+  {
+    title: 'Lesson 10: Building a Trading Plan',
+    icon: <FileText className="w-6 h-6 text-sky-400" />,
+    terms: ['Trading Plan', 'Trading Journal', 'Strategy Optimization', 'Performance Tracking', 'Community Learning'],
+    summary:
+      'Create your personalized trading system and next steps to go pro.',
+  },
+];
+
+export default function CryptoCourse() {
+  const [selectedLesson, setSelectedLesson] = useState(null);
+
+  return (
+    <div className="flex bg-black text-white min-h-screen">
+      <div className="w-64 bg-zinc-900 border-r border-zinc-700 p-4 space-y-4">
+        <h2 className="text-xl font-bold text-cyan-400 mb-4">📚 Crypto 101</h2>
+        {lessons.map((lesson, index) => (
+          <Button
+            key={index}
+            variant="ghost"
+            className={`w-full justify-start text-left ${selectedLesson === index ? 'bg-cyan-800' : ''}`}
+            onClick={() => setSelectedLesson(index)}
+          >
+            {lesson.title}
+          </Button>
+        ))}
+      </div>
+
+      <div className="flex-1 p-6">
+        {!selectedLesson && selectedLesson !== 0 && (
+          <>
+            <h1 className="text-4xl font-bold text-cyan-400 mb-6 text-center">Crypto Trading 101</h1>
+            <p className="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+              Interactive learning experience for crypto newcomers. Click a lesson to explore.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {lessons.map((lesson, index) => (
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  key={index}
+                  onClick={() => setSelectedLesson(index)}
+                >
+                  <Card className="bg-zinc-900 border border-cyan-700 hover:border-purple-600 cursor-pointer transition duration-200">
+                    <CardContent className="p-4">
+                      <div className="flex items-center space-x-3 mb-2">
+                        {lesson.icon}
+                        <h2 className="text-lg font-semibold text-white">{lesson.title}</h2>
+                      </div>
+                      <p className="text-gray-400 text-sm">{lesson.summary}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {selectedLesson !== null && (
+          <div className="mt-6 max-w-3xl mx-auto bg-zinc-800 p-6 rounded-2xl border border-cyan-700 shadow-md">
+            <h2 className="text-2xl font-bold text-cyan-400 mb-2">{lessons[selectedLesson].title}</h2>
+            <p className="text-gray-300 mb-4">{lessons[selectedLesson].summary}</p>
+            <h3 className="text-lg font-semibold text-purple-400 mb-1">Key Terms:</h3>
+            <ul className="list-disc list-inside text-gray-300">
+              {lessons[selectedLesson].terms.map((term, idx) => (
+                <li key={idx}>{term}</li>
+              ))}
+            </ul>
+            <Button
+              className="mt-4 bg-cyan-700 hover:bg-cyan-600"
+              onClick={() => setSelectedLesson(null)}
+            >
+              Back to Lessons
+            </Button>
+          </div>
+        )}
       </div>
     </div>
-  </div>
-</body>
-</html>
+  );
+}
