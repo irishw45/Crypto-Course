@@ -249,88 +249,95 @@
 <div class="lesson" id="quiz">
   <h2>Final Quiz: Test Your Knowledge</h2>
   <p class="explanation">Use this short quiz to check your understanding of key concepts from the course.</p>
-  <div class="terms">
+  <form id="quiz-form">
     <ol>
-
       <li><strong>What does 'volatility' measure?</strong><br>
-        A) Volume<br>
-        B) Price fluctuation<br>
-        C) Number of traders<br>
-        D) Wallet size
+        <label><input type="radio" name="q1" value="A"> A) Volume</label><br>
+        <label><input type="radio" name="q1" value="B"> B) Price fluctuation</label><br>
+        <label><input type="radio" name="q1" value="C"> C) Number of traders</label><br>
+        <label><input type="radio" name="q1" value="D"> D) Wallet size</label>
       </li><br>
-
       <li><strong>Which tool is used to evaluate a crypto project's purpose and vision?</strong><br>
-        A) Stop-loss<br>
-        B) RSI<br>
-        C) Whitepaper<br>
-        D) Slippage
+        <label><input type="radio" name="q2" value="A"> A) Stop-loss</label><br>
+        <label><input type="radio" name="q2" value="B"> B) RSI</label><br>
+        <label><input type="radio" name="q2" value="C"> C) Whitepaper</label><br>
+        <label><input type="radio" name="q2" value="D"> D) Slippage</label>
       </li><br>
-
       <li><strong>What happens when a position is liquidated?</strong><br>
-        A) It earns interest<br>
-        B) It gets paused<br>
-        C) It’s force-closed due to insufficient funds<br>
-        D) The trader gains leverage
+        <label><input type="radio" name="q3" value="A"> A) It earns interest</label><br>
+        <label><input type="radio" name="q3" value="B"> B) It gets paused</label><br>
+        <label><input type="radio" name="q3" value="C"> C) It’s force-closed due to insufficient funds</label><br>
+        <label><input type="radio" name="q3" value="D"> D) The trader gains leverage</label>
       </li><br>
-
       <li><strong>What is the goal of backtesting?</strong><br>
-        A) Live testing on demo accounts<br>
-        B) Estimating bid/ask spread<br>
-        C) Testing strategies on historical data<br>
-        D) Copying professional trades
+        <label><input type="radio" name="q4" value="A"> A) Live testing on demo accounts</label><br>
+        <label><input type="radio" name="q4" value="B"> B) Estimating bid/ask spread</label><br>
+        <label><input type="radio" name="q4" value="C"> C) Testing strategies on historical data</label><br>
+        <label><input type="radio" name="q4" value="D"> D) Copying professional trades</label>
       </li><br>
-
       <li><strong>What is the most secure way to store long-term crypto assets?</strong><br>
-        A) Exchange wallet<br>
-        B) Hot wallet<br>
-        C) Cold wallet<br>
-        D) Email backup
-      </li>
-    
-
+        <label><input type="radio" name="q5" value="A"> A) Exchange wallet</label><br>
+        <label><input type="radio" name="q5" value="B"> B) Hot wallet</label><br>
+        <label><input type="radio" name="q5" value="C"> C) Cold wallet</label><br>
+        <label><input type="radio" name="q5" value="D"> D) Email backup</label>
+      </li><br>
       <li><strong>What is a stop-loss used for in trading?</strong><br>
-        A) To increase profit potential<br>
-        B) To identify trends<br>
-        C) To limit potential losses<br>
-        D) To manage leverage
+        <label><input type="radio" name="q6" value="A"> A) To increase profit potential</label><br>
+        <label><input type="radio" name="q6" value="B"> B) To identify trends</label><br>
+        <label><input type="radio" name="q6" value="C"> C) To limit potential losses</label><br>
+        <label><input type="radio" name="q6" value="D"> D) To manage leverage</label>
       </li><br>
-
       <li><strong>Which best describes the concept of a candlestick chart?</strong><br>
-        A) A bar graph of volume by exchange<br>
-        B) A line chart of sentiment<br>
-        C) A visual showing price movement including open, high, low, and close<br>
-        D) A pie chart of wallet distributions
+        <label><input type="radio" name="q7" value="A"> A) A bar graph of volume by exchange</label><br>
+        <label><input type="radio" name="q7" value="B"> B) A line chart of sentiment</label><br>
+        <label><input type="radio" name="q7" value="C"> C) A visual showing price movement including open, high, low, and close</label><br>
+        <label><input type="radio" name="q7" value="D"> D) A pie chart of wallet distributions</label>
       </li><br>
-
       <li><strong>Tokenomics includes analysis of:</strong><br>
-        A) Developer salary schedules<br>
-        B) Wallets and cold storage systems<br>
-        C) Token supply, distribution, burn rate, and inflation<br>
-        D) VPN and wallet compatibility
+        <label><input type="radio" name="q8" value="A"> A) Developer salary schedules</label><br>
+        <label><input type="radio" name="q8" value="B"> B) Wallets and cold storage systems</label><br>
+        <label><input type="radio" name="q8" value="C"> C) Token supply, distribution, burn rate, and inflation</label><br>
+        <label><input type="radio" name="q8" value="D"> D) VPN and wallet compatibility</label>
       </li><br>
-
       <li><strong>What does 2FA help prevent?</strong><br>
-        A) Price slippage<br>
-        B) Wallet overuse<br>
-        C) Unauthorized account access<br>
-        D) Trading fees
+        <label><input type="radio" name="q9" value="A"> A) Price slippage</label><br>
+        <label><input type="radio" name="q9" value="B"> B) Wallet overuse</label><br>
+        <label><input type="radio" name="q9" value="C"> C) Unauthorized account access</label><br>
+        <label><input type="radio" name="q9" value="D"> D) Trading fees</label>
       </li><br>
-
       <li><strong>Backtesting provides what benefit?</strong><br>
-        A) Tells you exactly how to trade tomorrow<br>
-        B) Allows you to test a strategy using historical price data<br>
-        C) Helps avoid taxes on gains<br>
-        D) Automates stop-loss orders
+        <label><input type="radio" name="q10" value="A"> A) Tells you exactly how to trade tomorrow</label><br>
+        <label><input type="radio" name="q10" value="B"> B) Allows you to test a strategy using historical price data</label><br>
+        <label><input type="radio" name="q10" value="C"> C) Helps avoid taxes on gains</label><br>
+        <label><input type="radio" name="q10" value="D"> D) Automates stop-loss orders</label>
       </li><br>
-
       <li><strong>Why is a trading plan important?</strong><br>
-        A) To follow financial influencers<br>
-        B) To document profits<br>
-        C) To ensure consistent decision-making and avoid emotional trades<br>
-        D) To get margin approval faster
+        <label><input type="radio" name="q11" value="A"> A) To follow financial influencers</label><br>
+        <label><input type="radio" name="q11" value="B"> B) To document profits</label><br>
+        <label><input type="radio" name="q11" value="C"> C) To ensure consistent decision-making and avoid emotional trades</label><br>
+        <label><input type="radio" name="q11" value="D"> D) To get margin approval faster</label>
       </li>
-    <p><strong>Answers:</strong> 1-B, 2-C, 3-C, 4-C, 5-C, 6-C, 7-C, 8-C, 9-C, 10-B, 11-B</p>
-  </div>
+    </ol>
+    <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+    <p id="result"></p>
+  </form>
 </div>
 <!-- END QUIZ -->
+<script>
+function gradeQuiz() {
+  const answers = {
+    q1: 'B', q2: 'C', q3: 'C', q4: 'C', q5: 'C',
+    q6: 'C', q7: 'C', q8: 'C', q9: 'C', q10: 'B', q11: 'C'
+  };
+  let score = 0;
+  for (let q in answers) {
+    const selected = document.querySelector(`input[name="${q}"]:checked`);
+    if (selected && selected.value === answers[q]) {
+      score++;
+    }
+  }
+  const percent = Math.round((score / Object.keys(answers).length) * 100);
+  document.getElementById("result").innerText = `You scored ${score}/11 (${percent}%)`;
+}
+</script>
 <!-- The full set of lessons follows and retains your previous structure -->
