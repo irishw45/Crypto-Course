@@ -338,12 +338,15 @@ function gradeQuiz() {
   const answers = {
     q1: 'B', q2: 'C', q3: 'C', q4: 'C', q5: 'C',
     q6: 'C', q7: 'C', q8: 'C', q9: 'C', q10: 'B', q11: 'C'
-  };"]`);
-    radios.forEach(r => {
-      const label = r.closest('label');
+  };
+  let score = 0;
+  for (let q in answers) {
+    const radios = document.querySelectorAll(`input[name="${q}"]`);
+    radios.forEach(radio => {
+      const label = radio.closest('label');
       label.classList.remove('correct', 'incorrect');
-      if (r.checked) {
-        if (r.value === answers[q]) {
+      if (radio.checked) {
+        if (radio.value === answers[q]) {
           label.classList.add('correct');
           score++;
         } else {
@@ -351,16 +354,6 @@ function gradeQuiz() {
         }
       }
     });
-  }
-  const percent = Math.round((score / Object.keys(answers).length) * 100);
-  document.getElementById("result").innerText = `You scored ${score}/11 (${percent}%)`;
-};
-  let score = 0;
-  for (let q in answers) {
-    const selected = document.querySelector(`input[name="${q}"]:checked`);
-    if (selected && selected.value === answers[q]) {
-      score++;
-    }
   }
   const percent = Math.round((score / Object.keys(answers).length) * 100);
   document.getElementById("result").innerText = `You scored ${score}/11 (${percent}%)`;
