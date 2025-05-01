@@ -78,27 +78,10 @@
       padding: 0.25rem;
       border-radius: 5px;
     }
-    .resources {
-      margin-top: 1rem;
-    }
-    .resources button {
-      background-color: #00fff7;
-      color: #000;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 0.5rem;
-    }
-    .resources ul {
-      display: none;
-      list-style: disc;
-      margin-top: 0.5rem;
-      padding-left: 1.5rem;
-    }
-    .resources ul.show {
-      display: block;
-    }
+    
+    
+    
+    
 </head>
 <body>
   <header>
@@ -121,12 +104,7 @@
 <!-- FULL LESSONS 1–10 INSERTED HERE -->
 <!-- START LESSON 1 -->
 $1
-  <div class="resources">
-  <button onclick="toggleResources('resources-$1')">Show/Hide Additional Resources</button>
-  <ul id="resources-$1">
-$1
-  </ul>
-</div>
+  
   </div>
   </div>
 </div>
@@ -369,10 +347,7 @@ $1
 </div>
 <!-- END QUIZ -->
 <script>
-function toggleResources(id) {
-  const list = document.getElementById(id);
-  list.classList.toggle('show');
-}
+
 
 function gradeQuiz() {
   const answers = {
