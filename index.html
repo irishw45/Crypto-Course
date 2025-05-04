@@ -332,5 +332,119 @@
   </div>
 </div>
 </div>
+  <div class="lesson" id="quiz">
+  <h2>Crypto Quiz</h2>
+  <form id="cryptoQuiz">
+    <ol>
+      <li>
+        What is the maximum supply of Bitcoin?<br>
+        <label><input type="radio" name="q1" value="A"> A) 100 million</label><br>
+        <label><input type="radio" name="q1" value="B"> B) 50 million</label><br>
+        <label><input type="radio" name="q1" value="C"> C) 21 million</label>
+      </li>
+      <li>
+        What does DeFi stand for?<br>
+        <label><input type="radio" name="q2" value="A"> A) Digital Finance</label><br>
+        <label><input type="radio" name="q2" value="B"> B) Decentralized Finance</label><br>
+        <label><input type="radio" name="q2" value="C"> C) Defined Finance</label>
+      </li>
+      <li>
+        Which crypto introduced smart contracts?<br>
+        <label><input type="radio" name="q3" value="A"> A) Bitcoin</label><br>
+        <label><input type="radio" name="q3" value="B"> B) Ethereum</label><br>
+        <label><input type="radio" name="q3" value="C"> C) Litecoin</label>
+      </li>
+      <li>
+        What does a cold wallet refer to?<br>
+        <label><input type="radio" name="q4" value="A"> A) A wallet stored on a phone</label><br>
+        <label><input type="radio" name="q4" value="B"> B) An offline crypto storage</label><br>
+        <label><input type="radio" name="q4" value="C"> C) A wallet that holds stablecoins</label>
+      </li>
+      <li>
+        What is a blockchain fork?<br>
+        <label><input type="radio" name="q5" value="A"> A) A hack of the blockchain</label><br>
+        <label><input type="radio" name="q5" value="B"> B) A split in the network rules</label><br>
+        <label><input type="radio" name="q5" value="C"> C) A crypto regulation tool</label>
+      </li>
+      <li>
+        Which term describes new coins given to validators?<br>
+        <label><input type="radio" name="q6" value="A"> A) Burning</label><br>
+        <label><input type="radio" name="q6" value="B"> B) Minting</label><br>
+        <label><input type="radio" name="q6" value="C"> C) Airdrop</label>
+      </li>
+      <li>
+        Which network is known for fast transactions and low fees?<br>
+        <label><input type="radio" name="q7" value="A"> A) Ethereum</label><br>
+        <label><input type="radio" name="q7" value="B"> B) Solana</label><br>
+        <label><input type="radio" name="q7" value="C"> C) Bitcoin</label>
+      </li>
+      <li>
+        What’s the primary use of Chainlink (LINK)?<br>
+        <label><input type="radio" name="q8" value="A"> A) Gaming</label><br>
+        <label><input type="radio" name="q8" value="B"> B) NFTs</label><br>
+        <label><input type="radio" name="q8" value="C"> C) Connecting smart contracts to real-world data</label>
+      </li>
+      <li>
+        What consensus mechanism does Bitcoin use?<br>
+        <label><input type="radio" name="q9" value="A"> A) Proof of Stake</label><br>
+        <label><input type="radio" name="q9" value="B"> B) Proof of Authority</label><br>
+        <label><input type="radio" name="q9" value="C"> C) Proof of Work</label>
+      </li>
+      <li>
+        What is a stablecoin?<br>
+        <label><input type="radio" name="q10" value="A"> A) A coin backed by other crypto</label><br>
+        <label><input type="radio" name="q10" value="B"> B) A coin with price stability, often pegged to USD</label><br>
+        <label><input type="radio" name="q10" value="C"> C) A coin that doesn’t move on weekends</label>
+      </li>
+    </ol>
+    <br>
+    <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+    <p id="result" style="margin-top: 1rem;"></p>
+  </form>
+</div>
+<script>
+function gradeQuiz() {
+  const answers = {
+    q1: 'C', q2: 'B', q3: 'B', q4: 'B', q5: 'B',
+    q6: 'B', q7: 'B', q8: 'C', q9: 'C', q10: 'B'
+  };
+  let score = 0;
+
+  for (let q in answers) {
+    const radios = document.querySelectorAll(`input[name="${q}"]`);
+    radios.forEach(radio => {
+      const label = radio.closest('label');
+      label.classList.remove('correct', 'incorrect');
+      if (radio.checked) {
+        if (radio.value === answers[q]) {
+          label.classList.add('correct');
+          score++;
+        } else {
+          label.classList.add('incorrect');
+        }
+      }
+    });
+  }
+
+  const percent = Math.round((score / Object.keys(answers).length) * 100);
+  document.getElementById("result").innerText = `You scored ${score}/10 (${percent}%)`;
+}
+</script>
+
+<style>
+.correct {
+  background-color: #004d00;
+  color: #ffffff;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+.incorrect {
+  background-color: #5f0000;
+  color: #ffffff;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+</style>
+
 </body>
 </html>
